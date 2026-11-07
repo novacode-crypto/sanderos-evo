@@ -7,6 +7,20 @@ y versionado [SemVer](https://semver.org/lang/es/).
 
 ### Añadido
 
+- **`android-app/` — launcher nativo Kotlin + Compose, Fase 0** (v0.1.0):
+  - Vista de Conducción como pantalla principal: rombo de Renault con
+    tinte dinámico por tema + wordmark **SanderOS EVO** con las nuevas
+    fuentes (Sansation Regular/Bold + Designer con bold sintético),
+    carretera pseudo-3D animada y velocidad DEMO etiquetada.
+  - Tema dual Midnight/Light + Auto (7:00–19:00) persistido en DataStore.
+  - Ajustes con **Gestor de Módulos** (activar/desactivar con persistencia
+    y estado visible) según `docs/ARQUITECTURA-MODULOS.md`.
+  - Estructura Gradle `:app` · `:core` · `:designlib` · `:moduleapi` ·
+    `:modules:obd` (stub que demuestra el ciclo completo del contrato).
+  - Registrada como launcher (HOME + LAUNCHER), apaisada, APK universal
+    (arm64-v8a · armeabi-v7a · x86 · x86_64).
+  - Workflow `apk.yml`: compila la APK en cada push a main y la adjunta a
+    las releases de tags `v*`.
 - `docs/ARQUITECTURA-MODULOS.md` — documento fundacional de la arquitectura
   del launcher nativo: núcleo (Driving View + Settings + dashboard/dock) con
   módulos activables desde Settings, contrato `SanderModule` en `module-api`,

@@ -1,0 +1,19 @@
+# SanderOS EVO (Android)
+*.iml
+.gradle/
+build/
+local.properties
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Firma (NUNCA commitear): ver android-app/README.md
+keystore/
+*.jks
+*.keystore
+keystore.properties
+
+# Sistema
+.DS_Store
+Thumbs.db

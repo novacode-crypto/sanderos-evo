@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Arranque oscuro (evita el destello blanco antes de Compose en Midnight) -->
+    <color name="sanderos_bg">#0A192F</color>
+    <color name="sanderos_bg_light">#E9EEF5</color>
+    <color name="ic_launcher_bg">#0A192F</color>
+
+    <style name="Theme.Sanderos" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/sanderos_bg</item>
+        <item name="android:statusBarColor">@color/sanderos_bg</item>
+        <item name="android:navigationBarColor">@color/sanderos_bg</item>
+    </style>
+</resources>

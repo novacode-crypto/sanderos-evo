@@ -29,10 +29,16 @@ vehículo).
 
 ## Probar el prototipo
 
-No hay nada que instalar ni compilar: descarga este repositorio (o la
-[última release](../../releases)) y abre `prototype/index.html` en Chrome,
-Edge o Firefox. El archivo es **autocontenido** (~2 MB): fuentes, imágenes e
-iconos van embebidos, funciona sin conexión.
+**Opción A — App Android (launcher nativo, Fase 0):** descarga la APK de la
+[última release](../../releases) (`SanderOS-EVO-vX.Y.Z-release.apk`) e
+instálala en la autorradio o en un emulador (Android 10+). Incluye la Vista
+de Conducción con la marca en el centro, carretera animada DEMO, temas
+Midnight/Light/Auto y el Gestor de Módulos. Código en
+[`android-app/`](android-app/README.md).
+
+**Opción B — Prototipo HTML:** abre `prototype/index.html` en Chrome, Edge o
+Firefox. El archivo es **autocontenido** (~2 MB): fuentes, imágenes e iconos
+van embebidos, funciona sin conexión.
 
 | Atajo | Acción |
 |---|---|
@@ -107,6 +113,12 @@ Estas decisiones son vinculantes para cualquier iteración futura:
 
 ```
 sanderos-evo/
+├── android-app/           # Launcher nativo Kotlin + Compose (Fase 0)
+│   ├── app/               #   MainActivity · manifest HOME/LAUNCHER
+│   ├── core/              #   Driving View, carretera, Ajustes, stores
+│   ├── designlib/         #   tokens, tipografías, wordmark, placeholders
+│   ├── moduleapi/         #   contrato SanderModule + bus de capacidades
+│   └── modules/obd/       #   stub del módulo OBD2 (Fase 1)
 ├── prototype/
 │   ├── index.html          # Prototipo autocontenido (build v1.0.0)
 │   ├── build.py            # Ensamblador: regenera index.html desde src/
@@ -117,15 +129,17 @@ sanderos-evo/
 │       ├── fonts/          # Syne · DM Sans · JetBrains Mono (13 variantes woff2)
 │       └── img/            # Renders y portadas embebidos en base64
 ├── docs/
-│   ├── SanderOS_EVO_Handoff_Android.docx   # Guía de handoff (20 páginas)
-│   └── SanderOS_EVO_Handoff_Android.pdf
+│   ├── ARQUITECTURA-MODULOS.md           # Arquitectura fundacional del launcher
+│   ├── SanderOS_EVO_Handoff_Android.docx # Guía de handoff (20 páginas)
+│   ├── SanderOS_EVO_Handoff_Android.pdf
+│   └── GUIA-GITHUB.md                    # Publicación y flujo de trabajo
 ├── assets/
 │   ├── vehicle/            # 8 renders AI del Sandero (hero, ángulos, colores)
 │   ├── brand/              # Logotipo horizontal/compacto y icono de app (SVG)
 │   ├── media/              # Portadas y miniaturas de demo
 │   └── screenshots/        # Capturas del prototipo para documentación
 └── .github/
-    ├── workflows/          # Release automática + demo en GitHub Pages
+    ├── workflows/          # Release + Pages + CI de la APK Android
     └── release-notes/      # Notas de versión por tag
 ```
 
