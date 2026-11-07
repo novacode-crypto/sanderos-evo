@@ -1,0 +1,25 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Editores e IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Python (build del prototipo)
+__pycache__/
+*.pyc
+.venv/
+
+# Registros y temporales
+*.log
+*.tmp
+*.bak
+~
+
+# Descargas y artefactos sueltos
+dist/
+_site/
