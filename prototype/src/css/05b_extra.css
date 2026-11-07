@@ -1,0 +1,55 @@
+/* ============================================================
+   SanderOS EVO — Ajustes finales: fondos de pantalla,
+   capas a pantalla completa y correcciones de apilamiento
+   ============================================================ */
+
+/* Fondos de pantalla del shell */
+.screen-root::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .6s ease}
+.wp-mesh::before{opacity:1;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask:radial-gradient(75% 95% at 50% 38%,#000 0%,transparent 88%);mask:radial-gradient(75% 95% at 50% 38%,#000 0%,transparent 88%)}
+.wp-grad::before{opacity:1;background:
+  radial-gradient(780px 430px at 22% 112%,var(--acc-soft) 0%,transparent 60%),
+  radial-gradient(640px 400px at 88% -12%,var(--acc-soft-2) 0%,transparent 55%)}
+.central{background:transparent}
+.mod-view{background:transparent}
+.central::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(900px 500px at 50% -20%,rgba(23,107,206,.07),transparent 60%)}
+[data-theme="light"] .central::after{background:radial-gradient(900px 500px at 50% -20%,rgba(23,107,206,.05),transparent 60%)}
+
+/* Capas a pantalla completa: control de visualización */
+.fs-layer.splash{display:none}
+.fs-layer.splash.on{display:flex}
+.fs-layer#welcome{background:var(--bg-base)}
+
+/* Llamadas */
+#call .call-fs{display:none}
+#call.on .call-fs{display:flex}
+#call.on{pointer-events:auto}
+
+/* Separadores de la barra inferior */
+.bottombar .sep{flex:0 0 auto;display:flex;align-items:stretch}
+
+/* Sliders con estilo de progreso */
+.sld{background:transparent}
+
+/* Ajuste fino dock: etiqueta de dos líneas */
+.dock-tile .dt-lb{max-height:26px}
+
+/* Scrollbars del prototipo fuera del marco */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:rgba(120,150,200,.28);border-radius:5px}
+::-webkit-scrollbar-track{background:transparent}
+
+/* Enlaces de accesibilidad del prototipo */
+.wl-opt:focus-visible,.dock-tile:focus-visible,.btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* Fundido inferior en áreas con scroll (indica que hay más contenido) */
+.lib-body::after,.fm-body::after,.ds-body::after{content:"";position:sticky;left:0;right:0;bottom:-16px;height:0}
+.lib-body{padding-bottom:28px}
+.fm-body{padding-bottom:22px}
+
+/* Iconos: alineación vertical óptica */
+.ic,.dock-tile svg,.tb-btn svg{flex:0 0 auto}
+button svg{display:block}

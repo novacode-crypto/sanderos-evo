@@ -1,0 +1,137 @@
+/* ============================================================
+   SanderOS EVO — Design Tokens · Midnight Futuristic Cockpit
+   Target: 1280×720 landscape · Renault Sandero 2017
+   ============================================================ */
+
+:root{
+  /* ---- Color · Midnight (default) ---- */
+  --bg-deep:#071326;          /* superficies oscuras */
+  --bg-base:#0A192F;          /* fondo principal */
+  --bg-panel:#14243B;         /* tarjetas y módulos */
+  --bg-raise:#1B2E4A;         /* hover / elevadas */
+  --bg-sunk:#0C1B31;          /* campos hundidos */
+  --glass:rgba(13,29,54,.78); /* paneles translúcidos */
+  --glass-soft:rgba(16,33,60,.55);
+  --line:rgba(148,163,184,.16);
+  --line-soft:rgba(148,163,184,.10);
+  --line-acc:rgba(0,210,255,.38);
+  --tx-1:#F8FAFC;             /* Light Silver */
+  --tx-2:#94A3B8;             /* Slate */
+  --tx-3:#5F7089;
+  --acc:#00D2FF;              /* Electric Cyan */
+  --acc-ink:#00D2FF;
+  --acc-2:#176BCE;            /* Nova Blue */
+  --acc-soft:rgba(0,210,255,.12);
+  --acc-soft-2:rgba(23,107,206,.18);
+  --ok:#16C784; --ok-soft:rgba(22,199,132,.13);
+  --warn:#F5A623; --warn-soft:rgba(245,166,35,.13);
+  --err:#EF4444; --err-soft:rgba(239,68,68,.13);
+  --shadow-1:0 2px 10px rgba(3,10,24,.5);
+  --shadow-2:0 8px 28px rgba(3,10,24,.55);
+  --glow:0 0 22px rgba(0,210,255,.28);
+  --glow-soft:0 0 12px rgba(0,210,255,.16);
+  --hero-vignette:linear-gradient(180deg,rgba(7,19,38,.42) 0%,rgba(7,19,38,0) 26%,rgba(7,19,38,0) 58%,rgba(7,19,38,.72) 100%);
+
+  /* ---- Tipografía ---- */
+  --f-brand:'Syne',sans-serif;          /* marca y titulares seleccionados */
+  --f-ui:'DM Sans',sans-serif;          /* interfaz general */
+  --f-mono:'JetBrains Mono',monospace;  /* datos técnicos y OBD2 */
+  --fs-xxs:11px; --fs-xs:12.5px; --fs-s:14px; --fs-m:16px;
+  --fs-l:19px; --fs-xl:24px; --fs-2xl:32px; --fs-3xl:44px;
+
+  /* ---- Espaciado (base 4) ---- */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+
+  /* ---- Radios ---- */
+  --r-s:8px; --r-m:12px; --r-l:16px; --r-xl:24px; --r-pill:999px;
+
+  /* ---- Métricas del shell (1280×720) ---- */
+  --h-top:68px;        /* barra de estado superior */
+  --h-dock:116px;      /* selector de módulos */
+  --h-bottom:66px;     /* barra de información inferior */
+  --pad-x:32px;
+
+  /* ---- Movimiento ---- */
+  --t-fast:.16s cubic-bezier(.4,0,.2,1);
+  --t-med:.28s cubic-bezier(.22,.8,.24,1);
+  --t-slow:.5s cubic-bezier(.22,.8,.24,1);
+
+  color-scheme:dark;
+}
+
+/* ---- Color · Light (misma estructura, misma geometría) ---- */
+[data-theme="light"]{
+  --bg-deep:#CBD5E3;
+  --bg-base:#E9EEF5;
+  --bg-panel:#FFFFFF;
+  --bg-raise:#F2F6FA;
+  --bg-sunk:#E4EAF2;
+  --glass:rgba(255,255,255,.86);
+  --glass-soft:rgba(255,255,255,.66);
+  --line:rgba(10,25,47,.12);
+  --line-soft:rgba(10,25,47,.07);
+  --line-acc:rgba(0,150,200,.4);
+  --tx-1:#0A192F;               /* Midnight Navy como texto */
+  --tx-2:#51617A;
+  --tx-3:#8B99AE;
+  --acc:#00B4E4;                /* Electric Cyan (ajuste gráfico light) */
+  --acc-ink:#0276A6;            /* Cyan accesible para texto en claro */
+  --acc-2:#176BCE;
+  --acc-soft:rgba(0,180,228,.12);
+  --acc-soft-2:rgba(23,107,206,.10);
+  --ok:#0E9E68; --ok-soft:rgba(14,158,104,.12);
+  --warn:#C77F11; --warn-soft:rgba(199,127,17,.12);
+  --err:#D83838; --err-soft:rgba(216,56,56,.10);
+  --shadow-1:0 2px 10px rgba(10,25,47,.10);
+  --shadow-2:0 10px 30px rgba(10,25,47,.14);
+  --glow:0 0 18px rgba(0,180,228,.20);
+  --glow-soft:0 0 10px rgba(0,180,228,.10);
+  --hero-vignette:linear-gradient(180deg,rgba(10,25,47,.18) 0%,rgba(10,25,47,0) 26%,rgba(10,25,47,0) 58%,rgba(10,25,47,.30) 100%);
+  color-scheme:light;
+}
+
+/* ============ Base ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:var(--f-ui); font-size:var(--fs-m); color:var(--tx-1);
+  background:#04070E; overflow:hidden;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+body.stage-light{background:#B9C4D2}
+button{font-family:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,select{font-family:inherit;color:inherit}
+::selection{background:var(--acc-soft)}
+img{display:block;user-select:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--line-acc);outline-offset:2px}
+
+/* Utilidades tipográficas */
+.t-xs{font-size:var(--fs-xs)} .t-s{font-size:var(--fs-s)} .t-m{font-size:var(--fs-m)}
+.t-l{font-size:var(--fs-l)} .t-xl{font-size:var(--fs-xl)}
+.tx2{color:var(--tx-2)} .tx3{color:var(--tx-3)}
+.mono{font-family:var(--f-mono)}
+.brand-f{font-family:var(--f-brand)}
+.bold{font-weight:700} .med{font-weight:500}
+.cap{letter-spacing:.12em;text-transform:uppercase;font-size:var(--fs-xxs);font-weight:700;color:var(--tx-3)}
+
+/* Wordmark oficial — NUNCA en cursiva.
+   "Sander" (plata) + "OS" (cian) comparten línea base; "EVO" con gradiente. */
+.wordmark{font-family:var(--f-brand);font-weight:700;letter-spacing:-.02em;white-space:nowrap;display:inline-flex;align-items:baseline}
+.wordmark .w-sander{color:var(--tx-1)}
+.wordmark .w-os{color:var(--acc);font-weight:800}
+.wordmark .w-evo{
+  font-weight:800;margin-left:.42em;letter-spacing:.06em;
+  background:linear-gradient(115deg,#00D2FF 20%,#176BCE 90%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+}
+[data-theme="light"] .wordmark .w-evo{background:linear-gradient(115deg,#0092C9 20%,#176BCE 90%);-webkit-background-clip:text;background-clip:text}
+
+/* Etiqueta DEMO — para datos de demostración (nunca telemetría real) */
+.demo-chip{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.14em;
+  color:var(--warn);background:var(--warn-soft);
+  border:1px solid rgba(245,166,35,.35);border-radius:var(--r-s);
+  padding:2px 7px;text-transform:uppercase;
+}

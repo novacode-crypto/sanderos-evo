@@ -1,0 +1,25 @@
+/* ============================================================
+   SanderOS EVO — Animaciones (restringidas, funcionales)
+   El modo "reducir animaciones" desactiva las decorativas.
+   ============================================================ */
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes road-move{to{background-position:0 170px}}
+@keyframes drv-zoom{from{transform:scale(1.03)}to{transform:scale(1.1)}}
+@keyframes toast-in{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes toast-out{to{opacity:0;transform:translateX(40px)}}
+@keyframes fade-up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes obd-pulse{from{transform:scale(.55);opacity:.9}to{transform:scale(1.7);opacity:0}}
+@keyframes eq-bar{from{height:18%}to{height:92%}}
+@keyframes marquee{0%,12%{transform:translateX(0)}88%,100%{transform:translateX(var(--mq,-160px))}}
+@keyframes blink-soft{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* Marquee para títulos largos (Now Playing) */
+.mq{overflow:hidden;white-space:nowrap;max-width:100%}
+.mq>span{display:inline-block;animation:marquee 12s linear infinite}
+
+/* Transición de tema */
+.theme-anim,.theme-anim *{transition:background-color .45s ease,border-color .45s ease,color .45s ease,box-shadow .45s ease,fill .45s ease,stroke .45s ease!important}
+
+/* Reducir animaciones (Ajustes → Apariencia) */
+body.no-anim *,body.no-anim *::before,body.no-anim *::after{animation:none!important;transition:none!important}
