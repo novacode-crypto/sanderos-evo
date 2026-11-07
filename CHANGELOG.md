@@ -3,6 +3,22 @@
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y versionado [SemVer](https://semver.org/lang/es/).
 
+## [Sin publicar]
+
+### Añadido
+
+- `docs/ARQUITECTURA-MODULOS.md` — documento fundacional de la arquitectura
+  del launcher nativo: núcleo (Driving View + Settings + dashboard/dock) con
+  módulos activables desde Settings, contrato `SanderModule` en `module-api`,
+  bus de capacidades tipado, ciclo de vida dormir/despertar, presupuesto de
+  memoria, reglas de dependencia con enforcement en CI, camino futuro a
+  plugins APK externos y 4 fases de construcción.
+
+### Corregido
+
+- Normalización de bits de permiso: 63 archivos que quedaron marcados como
+  ejecutables (100755) vuelven a modo 644; sin cambios de contenido.
+
 ## [1.0.0] — 2026-11-07
 
 Primera versión completa del paquete de diseño.

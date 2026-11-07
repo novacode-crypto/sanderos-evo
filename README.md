@@ -164,6 +164,10 @@ inicial y activar la demo en GitHub Pages) está en
 
 ## Documentación
 
+- [`ARQUITECTURA-MODULOS.md`](docs/ARQUITECTURA-MODULOS.md) — **documento
+  fundacional del launcher nativo**: núcleo (Driving View + Settings) con
+  módulos activables, contrato `SanderModule`, bus de capacidades, reglas de
+  dependencia y fases de construcción.
 - [`SanderOS_EVO_Handoff_Android.pdf`](docs/SanderOS_EVO_Handoff_Android.pdf) —
   especificación de entrega: tokens de diseño, inventario de las 49 pantallas,
   especificación por módulo, componentes y notas de implementación en Android.
@@ -175,7 +179,9 @@ inicial y activar la demo en GitHub Pages) está en
 - [x] v1.0.0 — Prototipo completo de 49 pantallas, sistema dual de temas,
       activos de marca y documentación de handoff.
 - [ ] v1.x — Refinamientos de interacción según feedback de uso real.
-- [ ] v2.0 — Implementación nativa en Android (basada en la guía de handoff).
+- [ ] v2.0 — Implementación nativa en Android como launcher modular
+      (arquitectura definida en
+      [`docs/ARQUITECTURA-MODULOS.md`](docs/ARQUITECTURA-MODULOS.md)).
 
 ## Licencia
 
