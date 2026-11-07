@@ -10,7 +10,8 @@
 </p>
 
 <p align="center">
-  <a href="releases"><img src="https://img.shields.io/badge/release-v1.0.0-22d3ee.svg" alt="Release v1.0.0"></a>
+  <a href="releases"><img src="https://img.shields.io/badge/release-v1.1.0-22d3ee.svg" alt="Release v1.1.0"></a>
+  <a href="https://novacode-crypto.github.io/sanderos-evo/"><img src="https://img.shields.io/badge/landing-GitHub_Pages-00D2FF.svg" alt="Landing en GitHub Pages"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/licencia-MIT-blue.svg" alt="Licencia MIT"></a>
   <img src="https://img.shields.io/badge/plataforma-Android%2011-3ddc84.svg" alt="Android 11">
   <img src="https://img.shields.io/badge/prototipo-49%20pantallas-a855f7.svg" alt="49 pantallas">
@@ -27,7 +28,7 @@ dual (Midnight / Light), un **prototipo HTML interactivo de 49 pantallas** y una
 El prototipo y los datos de demostración están en **español** (interfaz del
 vehículo).
 
-## Probar el prototipo
+## Probar el proyecto
 
 **Opción A — App Android (launcher nativo, Fase 0):** descarga la APK de la
 [última release](../../releases) (`SanderOS-EVO-vX.Y.Z-release.apk`) e
@@ -38,7 +39,13 @@ Midnight/Light/Auto y el Gestor de Módulos. Código en
 
 **Opción B — Prototipo HTML:** abre `prototype/index.html` en Chrome, Edge o
 Firefox. El archivo es **autocontenido** (~2 MB): fuentes, imágenes e iconos
-van embebidos, funciona sin conexión.
+van embebidos, funciona sin conexión. También puedes probarlo online en
+[`/prototype/`](https://novacode-crypto.github.io/sanderos-evo/prototype/).
+
+**Opción C — Landing oficial:** la página pública del proyecto en GitHub
+Pages, con las fuentes del launcher, el rombo de Renault, descargas de la
+última release y la demo del prototipo:
+**<https://novacode-crypto.github.io/sanderos-evo/>**
 
 | Atajo | Acción |
 |---|---|
@@ -91,10 +98,14 @@ van embebidos, funciona sin conexión.
 
 Estas decisiones son vinculantes para cualquier iteración futura:
 
-- El wordmark se escribe **SanderOS** (nunca en cursiva): «Sander» en color de
-  texto, «OS» en cian eléctrico, alineados en la base.
-- **EVO** usa la fuente display Syne 800 con degradado cian-azul y tracking
-  amplio: reconocible sin dominar la interfaz.
+- El wordmark se escribe **SanderOS** (nunca en cursiva): «Sander» en **Sansation
+  regular** con color de texto, «OS» en **Sansation bold** y cian eléctrico,
+  alineados en la base; el rombo de Renault los precede, tintado según el tema.
+- **EVO** usa la fuente display **Designer** (Belina Studio) — única variante
+  Regular, con bold sintético — a 0.86 em, tracking .06em y degradado
+  cian→azul: reconocible sin dominar la interfaz. Mismas fuentes en el
+  launcher Android, el prototipo web y la landing (ver
+  [`android-app/FONTS.md`](android-app/FONTS.md)).
 - El vídeo queda **forzosamente bloqueado durante la marcha** (sin opción de
   desactivar; solo continúa el audio).
 - La navegación **no incrusta mapas**: lanza intents de Android hacia
@@ -119,14 +130,16 @@ sanderos-evo/
 │   ├── designlib/         #   tokens, tipografías, wordmark, placeholders
 │   ├── moduleapi/         #   contrato SanderModule + bus de capacidades
 │   └── modules/obd/       #   stub del módulo OBD2 (Fase 1)
+├── landing/               # Landing pública autocontenida (GitHub Pages)
+│   └── index.html         #   Fuentes + rombo embebidos · enlaces a releases
 ├── prototype/
-│   ├── index.html          # Prototipo autocontenido (build v1.0.0)
+│   ├── index.html          # Prototipo autocontenido (build v1.1.0)
 │   ├── build.py            # Ensamblador: regenera index.html desde src/
-│   └── src/                # Fuentes modulares (el orden 01–16 es significativo)
+│   └── src/                # Fuentes modulares (el orden 00–16 es significativo)
 │       ├── css/            # Tokens, shell, componentes, módulos, animaciones
 │       ├── html/           # Cuerpo del documento
 │       ├── js/             # Iconos, datos, núcleo, pantallas, arranque
-│       ├── fonts/          # Syne · DM Sans · JetBrains Mono (13 variantes woff2)
+│       ├── fonts/          # Sansation · Designer · JetBrains Mono (7 woff2)
 │       └── img/            # Renders y portadas embebidos en base64
 ├── docs/
 │   ├── ARQUITECTURA-MODULOS.md           # Arquitectura fundacional del launcher
@@ -135,11 +148,11 @@ sanderos-evo/
 │   └── GUIA-GITHUB.md                    # Publicación y flujo de trabajo
 ├── assets/
 │   ├── vehicle/            # 8 renders AI del Sandero (hero, ángulos, colores)
-│   ├── brand/              # Logotipo horizontal/compacto y icono de app (SVG)
+│   ├── brand/              # Logotipos SVG + rombo de Renault (claro/oscuro)
 │   ├── media/              # Portadas y miniaturas de demo
 │   └── screenshots/        # Capturas del prototipo para documentación
 └── .github/
-    ├── workflows/          # Release + Pages + CI de la APK Android
+    ├── workflows/          # Release + APK + Pages (landing y demo)
     └── release-notes/      # Notas de versión por tag
 ```
 
@@ -192,8 +205,10 @@ inicial y activar la demo en GitHub Pages) está en
 
 - [x] v1.0.0 — Prototipo completo de 49 pantallas, sistema dual de temas,
       activos de marca y documentación de handoff.
-- [ ] v1.x — Refinamientos de interacción según feedback de uso real.
-- [ ] v2.0 — Implementación nativa en Android como launcher modular
+- [x] v1.1.0 — Fuentes oficiales del launcher (Sansation + Designer) y rombo
+      de Renault en el prototipo; landing pública en GitHub Pages; launcher
+      nativo Fase 0 (APK v0.1.0) y arquitectura de módulos.
+- [ ] v2.0 — Implementación nativa completa en Android como launcher modular
       (arquitectura definida en
       [`docs/ARQUITECTURA-MODULOS.md`](docs/ARQUITECTURA-MODULOS.md)).
 

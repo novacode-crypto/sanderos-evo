@@ -4,6 +4,12 @@ Cómo poner en marcha este repositorio en GitHub, guardar el progreso y
 publicar versiones. Elige el camino A (recomendado, con GitHub CLI) o el B
 (solo navegador + git).
 
+> **Estado actual del repositorio remoto:** `novacode-crypto/sanderos-evo`
+> está publicado en el estado de la v1.0.0. Este paquete añade por delante la
+> v1.1.0 (fuentes oficiales, rombo de Renault, landing pública y launcher
+> nativo Fase 0). Para actualizarlo, ve directamente a la sección
+> [«Actualizar tu GitHub a v1.1.0»](#actualizar-tu-github-a-v11-desde-v10).
+
 ## A. Primer despliegue con GitHub CLI
 
 Requisitos: [git](https://git-scm.com) y [GitHub CLI](https://cli.github.com)
@@ -60,6 +66,44 @@ descargables. Puedes ver el progreso en la pestaña *Actions*.
    *Source: **GitHub Actions***, y ejecuta el workflow «GitHub Pages» desde la
    pestaña *Actions* (botón *Run workflow*).
 
+## Actualizar tu GitHub a v1.1.0 (desde v1.0.0)
+
+El remoto ya existe, así que basta con subir la rama y los tags. Desde la
+carpeta del repositorio:
+
+```bash
+git remote -v
+# origin  https://github.com/novacode-crypto/sanderos-evo.git
+
+git push origin main --tags
+```
+
+Ese único comando sube:
+
+1. Los commits pendientes de main (launcher nativo Fase 0, fuentes oficiales,
+   rombo de Renault y landing pública).
+2. El tag `v1.1.0`, que dispara automáticamente:
+   - el workflow **Release** — publica la release v1.1.0 con el prototipo y la
+     documentación adjuntos;
+   - el workflow **APK Android** — compila el launcher y adjunta
+     `SanderOS-EVO-v1.1.0-release.apk` a esa misma release.
+
+Después, activa GitHub Pages (solo la primera vez):
+
+- **Settings → Pages → Build and deployment → Source: GitHub Actions**, y
+  ejecuta el workflow «GitHub Pages» desde la pestaña *Actions*.
+
+En 1–2 minutos queda publicado:
+
+| Elemento | URL |
+|---|---|
+| Landing pública | `https://novacode-crypto.github.io/sanderos-evo/` |
+| Demo del prototipo | `https://novacode-crypto.github.io/sanderos-evo/prototype/` |
+| Release v1.1.0 | `https://github.com/novacode-crypto/sanderos-evo/releases/tag/v1.1.0` |
+
+La landing se realza sola con la GitHub API: sus botones apuntan a los
+activos reales de la última release (APK, prototipo, PDF, DOCX).
+
 ## Guardar el progreso día a día
 
 El historial ya viene preparado con 8 commits que reflejan las fases del
@@ -95,14 +139,19 @@ fuentes.
    artefactos:
    - `SanderOS_EVO_Prototipo_vX.Y.Z.html` (prototipo autocontenido)
    - `SanderOS_EVO_Handoff_Android.pdf` / `.docx`
+   - `SanderOS-EVO-vX.Y.Z-release.apk` (la compila y adjunta `apk.yml`)
+
+   Además, el workflow **GitHub Pages** republica la landing y la demo si ha
+   cambiado `landing/index.html` o `prototype/index.html`.
 
 ## Resultado esperado
 
 | Elemento | URL |
 |---|---|
-| Repositorio | `https://github.com/TU_USUARIO/sanderos-evo` |
-| Releases | `…/sanderos-evo/releases` (v1.0.0 con artefactos) |
-| Demo online | `https://TU_USUARIO.github.io/sanderos-evo/` |
+| Repositorio | `https://github.com/novacode-crypto/sanderos-evo` |
+| Landing pública | `https://novacode-crypto.github.io/sanderos-evo/` |
+| Demo del prototipo | `https://novacode-crypto.github.io/sanderos-evo/prototype/` |
+| Releases | `…/sanderos-evo/releases` (v1.1.0 con APK, prototipo y docs) |
 
 ## Problemas frecuentes
 
@@ -111,6 +160,7 @@ fuentes.
   *Release* solo se dispara con tags que empiecen por `v` (`v1.1.0`, no
   `1.1.0`).
 - **Pages devuelve 404** → verifica que *Source* esté en *GitHub Actions* y
-  ejecuta el workflow manualmente una vez.
+  ejecuta el workflow manualmente una vez. La landing queda en `/` y la demo
+  del prototipo en `/prototype/`.
 - **La CI falla en «Comprobar que el build está actualizado»** → olvidaste
   ejecutar `python3 prototype/build.py` tras editar fuentes.
