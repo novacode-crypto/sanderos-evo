@@ -3,14 +3,35 @@
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y versionado [SemVer](https://semver.org/lang/es/).
 
-## [Sin publicar]
+## [1.1.0] — 2026-11-08
 
 ### Añadido
 
+- **Fuentes oficiales del launcher en el prototipo web** — mismas tipografías
+  que la app Android (`android-app/FONTS.md`):
+  - **Sansation** Regular/Bold para «Sander» y «OS» del wordmark y toda la
+    interfaz (sustituye a DM Sans).
+  - **Designer** (Belina Studio) para «EVO», con bold sintético — la fuente
+    solo existe en Regular — y gradiente cian→azul (sustituye a Syne).
+  - **JetBrains Mono** se mantiene para datos técnicos y OBD2.
+  - El paquete pasa de 13 a 7 variantes embebidas: el prototipo baja de
+    ~2,1 MB a ~1,7 MB.
+  - El wordmark replica la composición de `Brand.kt`: rombo tintado +
+    «Sander» 400 + «OS» 700 cian + «EVO» a 0.86 em con tracking .06em.
+- **Rombo de Renault** (imagen aportada por el propietario) en topbar,
+  splash, «Acerca de» y panel de tipografía del prototipo, como máscara CSS
+  tintada por tema (equivalente web de `ColorFilter.tint` del launcher).
+  Variantes negro/blanco en `assets/brand/`.
+- **`landing/` — landing pública autocontenida para GitHub Pages** (~0,9 MB):
+  hero, APK, prototipo, documentación, código y marca en pantallas completas
+  (100 dvh + scroll-snap obligatorio); fuentes y rombo embebidos; botones de
+  descarga realzados con la GitHub API (última release) con respaldo estático.
+- El workflow de Pages publica ahora la landing en `/` y el prototipo en
+  `/prototype/`.
 - **`android-app/` — launcher nativo Kotlin + Compose, Fase 0** (v0.1.0):
   - Vista de Conducción como pantalla principal: rombo de Renault con
-    tinte dinámico por tema + wordmark **SanderOS EVO** con las nuevas
-    fuentes (Sansation Regular/Bold + Designer con bold sintético),
+    tinte dinámico por tema + wordmark **SanderOS EVO** con las fuentes
+    oficiales (Sansation Regular/Bold + Designer con bold sintético),
     carretera pseudo-3D animada y velocidad DEMO etiquetada.
   - Tema dual Midnight/Light + Auto (7:00–19:00) persistido en DataStore.
   - Ajustes con **Gestor de Módulos** (activar/desactivar con persistencia
@@ -32,6 +53,7 @@ y versionado [SemVer](https://semver.org/lang/es/).
 
 - Normalización de bits de permiso: 63 archivos que quedaron marcados como
   ejecutables (100755) vuelven a modo 644; sin cambios de contenido.
+- El chip DEMO duplicado de la topbar del launcher nativo se elimina.
 
 ## [1.0.0] — 2026-11-07
 
@@ -70,4 +92,5 @@ Primera versión completa del paquete de diseño.
 - CI: verificación de build, release automática al publicar tags y demo del
   prototipo en GitHub Pages.
 
+[1.1.0]: ../../releases/tag/v1.1.0
 [1.0.0]: ../../releases/tag/v1.0.0
