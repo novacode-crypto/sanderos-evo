@@ -26,7 +26,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.sanderos.evo.design.DemoChip
 import com.sanderos.evo.design.JetBrainsMono
 import com.sanderos.evo.design.Sansation
 import com.sanderos.evo.design.sanderosPalette
@@ -37,8 +36,9 @@ private val DIAS = listOf("lunes", "martes", "miércoles", "jueves", "viernes", 
 private val MESES = listOf("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic")
 
 /**
- * Barra superior del shell — estado a la izquierda, reloj centrado,
- * etiqueta DEMO a la derecha (geometría del prototipo).
+ * Barra superior del shell — estado a la izquierda, reloj centrado
+ * (geometría del prototipo). La etiqueta DEMO vive junto a la velocidad,
+ * no aquí, para no duplicarla.
  */
 @Composable
 fun TopBar(modifier: Modifier = Modifier) {
@@ -96,7 +96,5 @@ fun TopBar(modifier: Modifier = Modifier) {
         }
 
         Spacer(Modifier.weight(1f))
-
-        DemoChip()
     }
 }
