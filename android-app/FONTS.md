@@ -20,3 +20,18 @@
 - Si algún día el proyecto se distribuyera comercialmente, sustituir
   DESIGNER por una alternativa OFL de estilo similar (Michroma, Audiowide,
   Orbitron).
+
+## Uso web (prototipo y landing)
+
+El prototipo (`prototype/`) y la landing pública (`landing/`) usan
+exactamente estas mismas fuentes, embebidas en woff2 base64:
+
+| Fuente web | Peso | Uso |
+|---|---|---|
+| Sansation | 400 / 700 | «Sander» / «OS», interfaz completa |
+| Designer | 400 (+ bold sintético del navegador) | «EVO» |
+| JetBrains Mono | 400 / 500 / 600 / 700 | datos técnicos y OBD2 |
+
+El rombo de Renault se incluye como máscara CSS tintada por tema — el
+homólogo web de `ColorFilter.tint` — con variantes negro (#231F20) y blanco
+(#F8FAFC) en `assets/brand/`.

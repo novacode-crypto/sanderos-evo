@@ -23,6 +23,7 @@ OUT = ROOT / "index.html"
 
 # --- Hoja de estilos (en orden de ensamblado) --------------------------------
 CSS_FILES = [
+    "css/00_brand_mark.css",     # rombo de Renault como máscara base64
     "css/01_tokens.css",        # tokens de diseño (dual Midnight/Light)
     "css/02_shell.css",         # marco del dispositivo, topbar, dock, statusbar
     "css/03_components.css",    # biblioteca de componentes
@@ -47,21 +48,17 @@ JS_FILES = [
 ]
 
 # --- Fuentes tipográficas embebidas ------------------------------------------
+# Fuentes oficiales del launcher (android-app/FONTS.md):
+# Sansation (wordmark e interfaz), Designer («EVO») y JetBrains Mono (datos).
 # (archivo, familia, peso, estilo)
 FONTS = [
-    ("DMSans-400.woff2",        "DM Sans",        400, "normal"),
-    ("DMSans-500.woff2",        "DM Sans",        500, "normal"),
-    ("DMSans-600.woff2",        "DM Sans",        600, "normal"),
-    ("DMSans-700.woff2",        "DM Sans",        700, "normal"),
-    ("DMSans-400i.woff2",       "DM Sans",        400, "italic"),
-    ("DMSans-500i.woff2",       "DM Sans",        500, "italic"),
+    ("Sansation-Regular.woff2", "Sansation",        400, "normal"),
+    ("Sansation-Bold.woff2",    "Sansation",        700, "normal"),
+    ("Designer.woff2",          "Designer",         400, "normal"),
     ("JetBrainsMono-400.woff2", "JetBrains Mono", 400, "normal"),
     ("JetBrainsMono-500.woff2", "JetBrains Mono", 500, "normal"),
     ("JetBrainsMono-600.woff2", "JetBrains Mono", 600, "normal"),
     ("JetBrainsMono-700.woff2", "JetBrains Mono", 700, "normal"),
-    ("Syne-600.woff2",          "Syne",           600, "normal"),
-    ("Syne-700.woff2",          "Syne",           700, "normal"),
-    ("Syne-800.woff2",          "Syne",           800, "normal"),
 ]
 
 IMG_DIR = "img"  # cada .jpg se embebe con su nombre de archivo como clave
@@ -79,7 +76,7 @@ def b64(path: Path) -> str:
 
 
 def build_fonts_css() -> str:
-    """Genera el bloque @font-face con las 13 variantes embebidas."""
+    """Genera el bloque @font-face con las 7 variantes embebidas."""
     rules = []
     for fname, family, weight, style in FONTS:
         payload = b64(SRC / "fonts" / fname)

@@ -43,7 +43,7 @@ function renderWelcome(){
   wl.innerHTML=`
   <div class="welcome">
     <div class="wl-top">
-      <div class="wordmark" style="font-size:34px"><span class="w-sander">Sander</span><span class="w-os">OS</span><span class="w-evo">EVO</span></div>
+      <div class="wordmark" style="font-size:34px"><span class="w-mark"></span><span class="w-sander">Sander</span><span class="w-os">OS</span><span class="w-evo">EVO</span></div>
     </div>
     <div class="wl-body">
       <div class="wl-card">

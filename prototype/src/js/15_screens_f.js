@@ -332,7 +332,7 @@ reg('about',{title:'Acerca de SanderOS EVO',group:'Sistema',render(v){
     <div class="lib-body" style="display:flex;gap:18px;align-items:flex-start">
       <div style="flex:0 0 300px;display:flex;flex-direction:column;gap:14px">
         <div class="card pad" style="text-align:center;padding:28px 20px">
-          <div class="tb-logo" style="width:64px;height:64px;border-radius:19px;margin:0 auto 14px;display:grid;place-items:center;background:var(--bg-raise);box-shadow:inset 0 0 0 1px var(--line-acc),var(--glow-soft)">${ic('car-front',32)}</div>
+          <div style="width:64px;height:64px;border-radius:19px;margin:0 auto 14px;display:grid;place-items:center;background:var(--bg-raise);box-shadow:inset 0 0 0 1px var(--line-acc),var(--glow-soft)"><span class="w-mark" style="height:42px"></span></div>
           <div class="wordmark" style="font-size:30px"><span class="w-sander">Sander</span><span class="w-os">OS</span><span class="w-evo">EVO</span></div>
           <div class="mono tx3" style="font-size:11px;letter-spacing:.28em;margin-top:8px">COCKPIT DIGITAL</div>
           <div class="tx2" style="font-size:12px;margin-top:14px;line-height:1.5">Entorno de infoentretenimiento personalizado<br>para Renault Sandero 2017</div>
@@ -348,14 +348,15 @@ reg('about',{title:'Acerca de SanderOS EVO',group:'Sistema',render(v){
         <div class="card">
           <div class="cap" style="margin-bottom:9px">Reglas de la marca</div>
           <div class="tx2" style="font-size:12.5px;line-height:1.6">
-            <b style="color:var(--tx-1)">SanderOS</b> se escribe exactamente así — <b style="color:var(--tx-1)">nunca en cursiva</b>. «Sander» usa el color primario (plata claro en Midnight) y «<b style="color:var(--acc-ink)">OS</b>» el acento cian, con línea base común.<br>
-            <b class="wordmark" style="font-size:13.5px"><span class="w-sander">Sander</span><span class="w-os">OS</span><span class="w-evo">EVO</span></b> — «EVO» usa tipografía display futurista con gradiente cian→azul, distinguible sin competir con el wordmark principal.
+            <b style="color:var(--tx-1)">SanderOS</b> se escribe exactamente así — <b style="color:var(--tx-1)">nunca en cursiva</b>. «Sander» (Sansation regular) usa el color primario (plata claro en Midnight) y «<b style="color:var(--acc-ink)">OS</b>» (Sansation bold) el acento cian, con línea base común; el rombo de Renault va tintado según el tema.<br>
+            <b class="wordmark" style="font-size:13.5px"><span class="w-sander">Sander</span><span class="w-os">OS</span><span class="w-evo">EVO</span></b> — «EVO» usa la fuente display <b style="color:var(--tx-1)">Designer</b> (Belina Studio) en bold sintético con gradiente cian→azul, distinguible sin competir con el wordmark principal.
           </div>
         </div>
         <div class="card">
           <div class="cap" style="margin-bottom:9px">Agradecimientos</div>
           <div class="tx2" style="font-size:12.5px;line-height:1.7">
-            Tipografías: <b style="color:var(--tx-1)">Syne</b> (marca), <b style="color:var(--tx-1)">DM Sans</b> (interfaz), <b style="color:var(--tx-1)">JetBrains Mono</b> (datos) — Google Fonts, licencias open source.<br>
+            Tipografías: <b style="color:var(--tx-1)">Sansation</b> (wordmark e interfaz) y <b style="color:var(--tx-1)">JetBrains Mono</b> (datos) — Google Fonts, licencia SIL OFL; <b style="color:var(--tx-1)">Designer</b> (Belina Studio) para «EVO» — gratuita para uso personal.<br>
+            Rombo de Renault: imagen oficial del propietario, tintada por tema.<br>
             Iconografía: sistema propio de trazo 1.8 inspirado en el estilo Lucide.<br>
             Renders del vehículo: visualizaciones originales generadas para este proyecto.
           </div>
@@ -409,20 +410,18 @@ reg('design',{title:'Design System',group:'Sistema',render(v){
       </div>`:''}
     ${_dsTab==='type'?`
       <div>
-        <div class="ds-sec-title">Syne — marca y titulares</div>
+        <div class="ds-sec-title">Sansation — marca e interfaz</div>
         <div class="card" style="margin-top:12px;padding:20px 24px">
-          <div class="brand-f" style="font-size:44px;font-weight:800;letter-spacing:-.01em">SanderOS EVO</div>
+          <div class="wordmark" style="font-size:34px"><span class="w-mark"></span><span class="w-sander">Sander</span><span class="w-os">OS</span><span class="w-evo">EVO</span></div>
           <div class="brand-f" style="font-size:19px;font-weight:700;margin-top:10px">Titular de módulo · 19px/700</div>
-          <div class="type-row"><span class="spec">brand · 700–800<br>wordmark, H1 de módulos, EVO</span><span class="brand-f bold" style="font-size:24px;font-weight:800">Aa Bb 0123</span></div>
+          <div class="type-row"><span class="spec">brand/ui · 400–700<br>wordmark, H1 de módulos, interfaz</span><span class="brand-f bold" style="font-size:24px">Aa Bb 0123</span></div>
         </div>
       </div>
       <div>
-        <div class="ds-sec-title">DM Sans — interfaz</div>
-        <div class="card" style="margin-top:12px;padding:8px 24px">
-          <div class="type-row"><span class="spec">ui/body · 16/400</span><span style="font-size:16px">Conduce con música, navegación y diagnósticos del Sandero.</span></div>
-          <div class="type-row"><span class="spec">ui/label · 14/600</span><span style="font-size:14px;font-weight:600">Canciones · Artistas · Álbumes</span></div>
-          <div class="type-row"><span class="spec">ui/cap · 11/700 · caps</span><span class="cap" style="color:var(--tx-2)">conectado · pista actual</span></div>
-          <div class="type-row"><span class="spec">ui/title · 19–24/700</span><span class="bold" style="font-size:22px">Computadora de viajes</span></div>
+        <div class="ds-sec-title">Designer — «EVO»</div>
+        <div class="card" style="margin-top:12px;padding:20px 24px">
+          <div style="font-family:var(--f-evo);font-weight:700;font-size:44px;letter-spacing:.06em;background:linear-gradient(115deg,#00D2FF 20%,#176BCE 90%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">EVO</div>
+          <div class="type-row"><span class="spec">display · solo «EVO»<br>bold sintético + gradiente</span><span class="tx2" style="font-size:12px;line-height:1.5">Belina Studio · la «E» se dibuja<br>como tres barras (Ξ), carácter propio</span></div>
         </div>
       </div>
       <div>

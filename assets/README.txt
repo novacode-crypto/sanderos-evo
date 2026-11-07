@@ -26,15 +26,24 @@ media/    — Contenido de demostración (etiquetado DEMO en el prototipo)
   thumb_nightdrive.png 1344×768   Miniatura de vídeo (demo) — conducción nocturna con lluvia.
   thumb_coast.png      1344×768   Miniatura de vídeo (demo) — ruta costera al atardecer.
 
-brand/    — Identidad vectorial
+brand/    — Identidad vectorial y rombo de Renault
   logo_horizontal_dark.svg   440×84   Wordmark para fondos oscuros.
   logo_horizontal_light.svg  440×84   Wordmark para fondos claros.
   logo_compact.svg           220×60   Marca compacta (icono + EVO).
   app_icon.svg               192×192  Icono de lanzador (exportar a mipmap PNG).
+  renault_diamond_black.png  500×658  Rombo de Renault (#231F20) sobre fondo
+                                      transparente — tinte del tema Light y
+                                      versión de partida del usuario.
+  renault_diamond_white.png  500×658  Rombo de Renault (#F8FAFC) — tinte del
+                                      tema Midnight. En web se usa como máscara
+                                      CSS (solo importa el alfa).
 
 Reglas de marca invariables
   · El wordmark se escribe «SanderOS» — nunca en cursiva, nunca separado.
-  · «Sander» usa el color primario de texto; «OS» usa siempre el acento cian,
-    con la misma línea base y proporciones equilibradas.
-  · «EVO» usa tipografía display futurista (Syne 800), mayúsculas, tracking
-    amplio y degradado cian→azul Nova; distinguible sin competir con el wordmark.
+  · «Sander» usa Sansation regular y el color primario de texto; «OS» usa
+    Sansation bold y siempre el acento cian, con la misma línea base.
+  · El rombo de Renault precede al wordmark, tintado según el tema
+    (negro #231F20 en Light, blanco #F8FAFC en Midnight).
+  · «EVO» usa la fuente display Designer (Belina Studio) — bold sintético
+    porque solo existe en Regular — a 0.86em, mayúsculas, tracking .06em y
+    degradado cian→azul Nova; distinguible sin competir con el wordmark.

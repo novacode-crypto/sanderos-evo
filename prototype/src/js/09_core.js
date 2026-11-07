@@ -116,7 +116,7 @@ function renderTopbar(){
   const tb=$('#topbar');
   tb.innerHTML=`
   <div class="tb-brand" id="tbHome" title="Volver a Vista de Conducción">
-    <div class="tb-logo">${ic('car-front',22)}</div>
+    <div class="tb-logo"><span class="w-mark" style="height:24px"></span></div>
     <div class="tb-wordmark wordmark"><span class="w-sander">Sander</span><span class="w-os">OS</span><span class="w-evo">EVO</span></div>
   </div>
   <div class="tb-mid">

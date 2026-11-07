@@ -32,10 +32,11 @@
   --glow-soft:0 0 12px rgba(0,210,255,.16);
   --hero-vignette:linear-gradient(180deg,rgba(7,19,38,.42) 0%,rgba(7,19,38,0) 26%,rgba(7,19,38,0) 58%,rgba(7,19,38,.72) 100%);
 
-  /* ---- Tipografía ---- */
-  --f-brand:'Syne',sans-serif;          /* marca y titulares seleccionados */
-  --f-ui:'DM Sans',sans-serif;          /* interfaz general */
-  --f-mono:'JetBrains Mono',monospace;  /* datos técnicos y OBD2 */
+  /* ---- Tipografía (fuentes oficiales del launcher, ver FONTS.md) ---- */
+  --f-brand:'Sansation',sans-serif;         /* marca y titulares */
+  --f-ui:'Sansation',sans-serif;            /* interfaz general */
+  --f-evo:'Designer',sans-serif;            /* «EVO» del wordmark (Belina Studio) */
+  --f-mono:'JetBrains Mono',monospace;      /* datos técnicos y OBD2 */
   --fs-xxs:11px; --fs-xs:12.5px; --fs-s:14px; --fs-m:16px;
   --fs-l:19px; --fs-xl:24px; --fs-2xl:32px; --fs-3xl:44px;
 
@@ -115,17 +116,30 @@ img{display:block;user-select:none}
 .bold{font-weight:700} .med{font-weight:500}
 .cap{letter-spacing:.12em;text-transform:uppercase;font-size:var(--fs-xxs);font-weight:700;color:var(--tx-3)}
 
-/* Wordmark oficial — NUNCA en cursiva.
-   "Sander" (plata) + "OS" (cian) comparten línea base; "EVO" con gradiente. */
-.wordmark{font-family:var(--f-brand);font-weight:700;letter-spacing:-.02em;white-space:nowrap;display:inline-flex;align-items:baseline}
-.wordmark .w-sander{color:var(--tx-1)}
-.wordmark .w-os{color:var(--acc);font-weight:800}
+/* Wordmark oficial — NUNCA en cursiva. Composición del launcher (Brand.kt):
+   [rombo Renault tintado] "Sander" (Sansation 400, color de texto) +
+   "OS" (Sansation 700, cian) + "EVO" (Designer a 0.86em, bold sintético,
+   gradiente cian→azul, tracking .06em). */
+.wordmark{font-family:var(--f-brand);font-weight:400;letter-spacing:0;white-space:nowrap;display:inline-flex;align-items:baseline}
+.wordmark .w-sander{color:var(--tx-1);font-weight:400}
+.wordmark .w-os{color:var(--acc);font-weight:700}
+[data-theme="light"] .wordmark .w-os{color:var(--acc-ink)}
 .wordmark .w-evo{
-  font-weight:800;margin-left:.42em;letter-spacing:.06em;
+  font-family:var(--f-evo);font-weight:700;font-size:.86em;margin-left:.26em;letter-spacing:.06em;
   background:linear-gradient(115deg,#00D2FF 20%,#176BCE 90%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
 }
 [data-theme="light"] .wordmark .w-evo{background:linear-gradient(115deg,#0092C9 20%,#176BCE 90%);-webkit-background-clip:text;background-clip:text}
+
+/* Rombo de Renault — máscara (var --mark en 00_brand_mark.css) con tinte
+   dinámico según el tema, como ColorFilter.tint del launcher. */
+.w-mark{
+  display:inline-block;flex:none;height:1.9em;aspect-ratio:500/658;width:auto;
+  background:var(--tx-1);align-self:center;
+  -webkit-mask:var(--mark) center/contain no-repeat;mask:var(--mark) center/contain no-repeat;
+}
+.wordmark .w-mark{margin-right:.42em}
+[data-theme="light"] .w-mark{background:#231F20}
 
 /* Etiqueta DEMO — para datos de demostración (nunca telemetría real) */
 .demo-chip{
