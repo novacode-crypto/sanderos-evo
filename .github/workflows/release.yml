@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  # Verifica que prototype/index.html commiteado coincide con sus fuentes.
+  verify-build:
+    name: Verificar build del prototipo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerar prototipo desde fuentes
+        run: python3 prototype/build.py
+
+      - name: Comprobar que el build está actualizado
+        run: |
+          if ! git diff --exit-code -- prototype/index.html; then
+            echo "::error::prototype/index.html no coincide con prototype/src/."
+            echo "Ejecuta 'python3 prototype/build.py' y commitea el build junto con las fuentes."
+            exit 1
+          fi
+          echo "El prototipo commiteado está actualizado respecto a sus fuentes."
+
+  release:
+    name: Publicar release
+    needs: verify-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Preparar artefactos
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          mkdir -p dist
+          cp prototype/index.html "dist/SanderOS_EVO_Prototipo_${TAG}.html"
+          cp docs/SanderOS_EVO_Handoff_Android.pdf docs/SanderOS_EVO_Handoff_Android.docx dist/
+
+      - name: Crear release con artefactos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          NOTES=".github/release-notes/${TAG}.md"
+          ARGS=(--title "SanderOS EVO ${TAG}")
+          if [ -f "$NOTES" ]; then
+            ARGS+=(--notes-file "$NOTES")
+          else
+            ARGS+=(--generate-notes)
+          fi
+          gh release create "$TAG" dist/* "${ARGS[@]}"
+          echo "Release publicada: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${TAG}"
