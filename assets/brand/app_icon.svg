@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2039"/><stop offset="1" stop-color="#071326"/></linearGradient>
+<linearGradient id="ev" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00D2FF"/><stop offset="1" stop-color="#176BCE"/></linearGradient>
+</defs>
+<rect width="192" height="192" rx="44" fill="url(#bg)"/>
+<rect x="6" y="6" width="180" height="180" rx="40" fill="none" stroke="#1D3A5F" stroke-width="2"/>
+<path d="M46 118 v-12 c0-14 10-24 28-24 h18 c16 0 26 8 29 19 l6 3 c5 2 8 6 8 12 v2 h-10 c0 9-7 15-15 15 s-15-6-15-15 H85 c0 9-7 15-15 15 s-15-6-15-15 z" fill="#F8FAFC"/>
+<circle cx="70" cy="132" r="12" fill="#0A192F" stroke="#00D2FF" stroke-width="3"/>
+<circle cx="124" cy="132" r="12" fill="#0A192F" stroke="#00D2FF" stroke-width="3"/>
+<path d="M78 90 h20 l-4 -8 c-1-2-3-3-5-3 h-6 c-3 0-5 3-5 5 z" fill="#B9C6D8" opacity=".9"/>
+<text x="96" y="172" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="26" letter-spacing="3" fill="url(#ev)">EVO</text>
+</svg>
